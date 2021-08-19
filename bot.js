@@ -37,17 +37,21 @@ const botResponse = (message, channelID, user) => {
   });
 };
 
+const botErrorResponse = (error, channelID) => {
+  console.error(error);
+  bot.sendMessage({
+    to: channelID,
+    message: 'Ops, parece que tivemos um problema. Os siderais já foram chamados, por favor agaurde e tente novamente.',
+  });
+};
+
 const getDicesValues = async (dicesAmount, diceType) => {
-  try {
-    const { random: { data } } = await random.generateIntegers({
-      min: 1,
-      max: diceType,
-      n: dicesAmount,
-    });
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  const { random: { data } } = await random.generateIntegers({
+    min: 1,
+    max: diceType,
+    n: dicesAmount,
+  });
+  return data;
 };
 
 bot.on('message', async (user, userID, channelID, message) => {
@@ -69,7 +73,7 @@ bot.on('message', async (user, userID, channelID, message) => {
       }
     }
   } catch (error) {
-    console.error(error);
+    botErrorResponse(error, channelID);
   }
 });
 

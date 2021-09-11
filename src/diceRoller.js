@@ -4,11 +4,21 @@ const { pipe, setProp, assign } = require('crocks/helpers');
 const prop = require('crocks/Maybe/prop');
 const maybeToArray = require('crocks/Maybe/maybeToArray');
 const { map } = require('crocks/pointfree');
-const getProp = require('crocks/Maybe/getProp');
 const { fromPromise } = require('crocks/Async');
 const RandomOrg = require('random-org');
 const getPath = require('crocks/Maybe/getPath');
+const getProp = require('crocks/Maybe/getProp');
+const { reduce } = require('crocks/pointfree');
+const ifElse = require('crocks/logic/ifElse');
+const Pair = require('crocks/Pair');
+const equals = require('crocks/pointfree/equals');
 const log = require('./lib/log');
+
+
+// add :: Number -> Number -> Number
+const add = x => y => x + y;
+
+const isGreater = first => second => first > second;
 
 
 // getDicesValues :: Number -> Number -> Async [ Number ]
@@ -45,9 +55,9 @@ const getTargetNumber = safeStringMatch(/(?<=(x|e))\d*/);
 // mapSuccessCounterType :: String -> String;
 const mapSuccessCounterType = map((successCounterNotation) => {
   const successCounterType = {
-    e: 'SUCCESS_DEFAULT',
-    x: 'SUCCESS_MAX_COUNT_TWO',
-    f: 'SUCCESS_MINUS_FAILURE',
+    e: Pair('SUCCESS_DEFAULT', add(1)),
+    x: Pair('SUCCESS_MAX_COUNT_TWO', maxNumber => ifElse(equals(maxNumber), add(1), add(2))),
+    f: Pair('SUCCESS_MINUS_FAILURE', ifElse(equals(1), add(1), add(-1))),
   };
 
   return successCounterType[successCounterNotation];
@@ -73,10 +83,37 @@ const buildRollObject = notation => ({
 const parseNotation = message => hasRollNotation(message).map(buildRollObject);
 
 
-// executeRoll :: Roll -> String
-// const executeRoll = () => {
-//   fromPromise();
+// const getRollStringOutput = (diceRoll) => (targetNumber) => {
+//   const msg = `\`${diceRoll}\` = ${dicesValues.join(', ')}`;
+//   return (successCounterType) => (targetNumber) => {
+
+//   };
 // };
+
+
+const countSuccess = successCounterTypeFn => isSuccess => ifElse(isSuccess, getSuccessCounterTypeFn);
+
+// const countSuccess = successCounterType => targetNumber => (diceValues) => {
+
+
+// };
+
+
+const successBasedRoll = dices => targetNumber => (successCounterType) => {
+  const isSuccess = dice => dice >= targetNumber;
+
+  const countReducer = reduce((dice, success) => pipe(isSuccess, countSuccess(successCounterType.snd())));
+
+  return countReducer(dices);
+};
+
+
+// executeRoll:: String -> String
+const executeRoll = (message) => {
+  const rollInfo = parseNotation(message);
+
+  const diceSidesProp = getProp();
+};
 
 log(
   parseNotation('#12d10x7'),

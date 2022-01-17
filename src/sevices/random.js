@@ -18,8 +18,4 @@ const randomService = () => {
   };
 };
 
-// // eslint-disable-next-line fp/no-unused-expression
-// randomService().getRandomIntegers(10, 20)
-//   .fork(log, log);
-
 module.exports = randomService;

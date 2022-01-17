@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon index.js",
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --forceExit",
     "lint": "eslint *.js **/*.js; exit 0",
     "lint:fix": "eslint *.js **/*.js --fix; exit 0"
   },

@@ -1,5 +1,4 @@
 /* eslint-disable fp/no-unused-expression */
-const pipe = require('crocks/helpers/pipe');
 const isTruthy = require('crocks/predicates/isTruthy');
 const Eris = require('eris');
 const diceRoller = require('./diceRoller');

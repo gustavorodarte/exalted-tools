@@ -1,13 +1,12 @@
-const { get } = require('crocks/State');
 const safe = require('crocks/Maybe/safe');
-const { pipe, setProp, assign } = require('crocks/helpers');
+const { pipe } = require('crocks/helpers');
 const prop = require('crocks/Maybe/prop');
 const maybeToArray = require('crocks/Maybe/maybeToArray');
 const { map } = require('crocks/pointfree');
-const { fromPromise } = require('crocks/Async');
+const Async = require('crocks/Async');
 const RandomOrg = require('random-org');
 const getPath = require('crocks/Maybe/getPath');
-const getProp = require('crocks/Maybe/getProp');
+const tap = require('crocks/helpers/tap');
 const { reduce } = require('crocks/pointfree');
 const ifElse = require('crocks/logic/ifElse');
 const Pair = require('crocks/Pair');
@@ -18,23 +17,15 @@ const log = require('./lib/log');
 // add :: Number -> Number -> Number
 const add = x => y => x + y;
 
-const isGreater = first => second => first > second;
+const addDicesValues = roll => dicesValues => ({
+  ...roll,
+  dicesValues,
+});
 
-
-// getDicesValues :: Number -> Number -> Async [ Number ]
-const getDicesValues = diceType => (dicesAmount) => {
-  const random = new RandomOrg({
-    apiKey: process.env.RANDOM_TOKEN,
-  });
-
-  const getRandomIntegers = fromPromise(() => random.generateIntegers({
-    min: 1,
-    max: diceType,
-    n: dicesAmount,
-  }));
-
-  return getRandomIntegers.map(getPath(['random', 'data']));
-};
+const addSuccess = roll => success => ({
+  ...roll,
+  success,
+});
 
 // isRoll :: String -> Boolean
 const isRoll = message => message.substring(0, 1) === '#';
@@ -42,21 +33,35 @@ const isRoll = message => message.substring(0, 1) === '#';
 // safeStringMatch ::  Regex -> String -> [ String ]
 const safeStringMatch = regex => pipe(string => string.match(regex), prop(0), maybeToArray);
 
-// getDiceSides :: String -> Maybe String
-const getDiceSides = safeStringMatch(/(?<=d)\d*/);
+// getDicesSides :: String -> Maybe StriaddDicesValuesng
+const getDicesSides = safeStringMatch(/(?<=d)\d*/);
 
-// getDiceAmount :: String -> Maybe String
-const getDiceAmount = safeStringMatch(/\d*(?=d)/);
+// getDicesAmount :: String -> Maybe String
+const getDicesAmount = safeStringMatch(/\d*(?=d)/);
 
 // getTargetNumber :: String -> Maybe String
 const getTargetNumber = safeStringMatch(/(?<=(x|e))\d*/);
 
+// getDicesValues ::  Roll -> Async [ Number ]
+const getDicesValues = (roll) => {
+  const random = new RandomOrg({
+    apiKey: process.env.RANDOM_TOKEN,
+  });
+
+  const getRandomIntegers = Async.fromPromise(() => random.generateIntegers({
+    min: 1,
+    max: roll.dicesSides[0],
+    n: roll.dicesAmount[0],
+  }));
+
+  return getRandomIntegers().map(getPath(['random', 'data'])).map(map(addDicesValues(roll))).map(tap(log));
+};
 
 // mapSuccessCounterType :: String -> String;
-const mapSuccessCounterType = map((successCounterNotation) => {
+const mapSuccessCounterType = maxNumber => map((successCounterNotation) => {
   const successCounterType = {
     e: Pair('SUCCESS_DEFAULT', add(1)),
-    x: Pair('SUCCESS_MAX_COUNT_TWO', maxNumber => ifElse(equals(maxNumber), add(1), add(2))),
+    x: Pair('SUCCESS_MAX_COUNT_TWO', ifElse(equals(maxNumber), add(1), add(2))),
     f: Pair('SUCCESS_MINUS_FAILURE', ifElse(equals(1), add(1), add(-1))),
   };
 
@@ -64,17 +69,19 @@ const mapSuccessCounterType = map((successCounterNotation) => {
 });
 
 // getSuccessCounterType :: String -> Maybe String
-const getSuccessCounterType = pipe(safeStringMatch(/[xef]/), mapSuccessCounterType);
+const getSuccessCounterType = (notation) => {
+  const maxNumber = getDicesSides(notation);
+  return pipe(safeStringMatch(/[xef]/), mapSuccessCounterType(maxNumber))(notation);
+};
 
 
 // String -> Maybe String
 const hasRollNotation = safe(isRoll);
 
-
 // buildRollObject :: String -> Roll
 const buildRollObject = notation => ({
-  diceSides: getDiceSides(notation),
-  diceAmount: getDiceAmount(notation),
+  dicesSides: getDicesSides(notation),
+  dicesAmount: getDicesAmount(notation),
   targetNumber: getTargetNumber(notation),
   successCounterType: getSuccessCounterType(notation),
 });
@@ -82,39 +89,22 @@ const buildRollObject = notation => ({
 // parseNotation :: String -> Maybe Roll;
 const parseNotation = message => hasRollNotation(message).map(buildRollObject);
 
+const successBasedRoll = (roll) => {
+  const isSuccess = dice => dice >= roll.targetNumber[0];
 
-// const getRollStringOutput = (diceRoll) => (targetNumber) => {
-//   const msg = `\`${diceRoll}\` = ${dicesValues.join(', ')}`;
-//   return (successCounterType) => (targetNumber) => {
+  const successCounterTypeFn = roll.successCounterType[0].snd();
 
-//   };
-// };
+  const countReducer = reduce((success, dice) => (isSuccess(dice)
+    ? successCounterTypeFn(success)
+    : success), 0);
 
-
-const countSuccess = successCounterTypeFn => isSuccess => ifElse(isSuccess, getSuccessCounterTypeFn);
-
-// const countSuccess = successCounterType => targetNumber => (diceValues) => {
-
-
-// };
-
-
-const successBasedRoll = dices => targetNumber => (successCounterType) => {
-  const isSuccess = dice => dice >= targetNumber;
-
-  const countReducer = reduce((dice, success) => pipe(isSuccess, countSuccess(successCounterType.snd())));
-
-  return countReducer(dices);
+  const totalSuccess = countReducer(roll.dicesValues);
+  return addSuccess(roll)(totalSuccess);
 };
 
+// executeRoll:: String -> Maybe [ Async ]
+const executeRoll = message => parseNotation(message)
+  .map(roll => getDicesValues(roll).map(map(successBasedRoll)));
 
-// executeRoll:: String -> String
-const executeRoll = (message) => {
-  const rollInfo = parseNotation(message);
-
-  const diceSidesProp = getProp();
-};
-
-log(
-  parseNotation('#12d10x7'),
-);
+// eslint-disable-next-line fp/no-unused-expression
+executeRoll('#12d10x7').map(a => a.fork(log, log));

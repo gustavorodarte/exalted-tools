@@ -106,5 +106,9 @@ const successBasedRoll = (roll) => {
 const executeRoll = message => parseNotation(message)
   .map(roll => getDicesValues(roll).map(map(successBasedRoll)));
 
-// eslint-disable-next-line fp/no-unused-expression
-executeRoll('#12d10x7').map(a => a.fork(log, log));
+// // eslint-disable-next-line fp/no-unused-expression
+// executeRoll('#12d10x7').map(a => a.fork(log, log));
+
+module.exports = {
+  executeRoll,
+};

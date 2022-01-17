@@ -7,26 +7,24 @@
   "author": "Gustavo Rodarte",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon bot.js",
+    "dev": "nodemon index.js",
     "lint": "eslint *.js **/*.js; exit 0",
     "lint:fix": "eslint *.js **/*.js --fix; exit 0"
   },
   "dependencies": {
     "crocks": "^0.12.4",
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
     "eris": "^0.15.1",
     "eyes": "^0.1.8",
-    "nodemon": "^1.18.3",
     "random-org": "^0.1.6",
-    "superstruct": "^0.15.2",
     "winston": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^8.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^2.0.15",
     "prettier": "2.4.0"
   }
 }

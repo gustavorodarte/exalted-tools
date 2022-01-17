@@ -1,15 +1,25 @@
 const RandomOrg = require('random-org');
+const { fromPromise } = require('crocks/Async');
 
+const randomService = () => {
+  const random = new RandomOrg({
+    apiKey: process.env.RANDOM_TOKEN,
+  });
 
-const random = () => {
+  return {
+    getRandomIntegers: (max, amount, min = 1) => {
+      const generateIntegers = fromPromise(() => random.generateIntegers({
+        min,
+        max,
+        n: amount,
+      }));
+      return generateIntegers().map((result) => result.random.data);
+    },
+  };
+};
 
-    const random = new RandomOrg({
-        apiKey: process.env.RANDOM_TOKEN,
-    });
+// // eslint-disable-next-line fp/no-unused-expression
+// randomService().getRandomIntegers(10, 20)
+//   .fork(log, log);
 
-    const getRandomIntegers = Async.fromPromise(() => random.generateIntegers({
-        min: 1,
-        max: roll.dicesSides[0],
-        n: roll.dicesAmount[0],
-    }));
-}
+module.exports = randomService;

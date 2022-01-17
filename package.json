@@ -1,6 +1,6 @@
 {
   "name": "random-roller-bot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A true random dice roller for discord.",
   "main": "index.js",
   "repository": "git@github.com:gustavorodarte/random-roller-bot.git",

@@ -125,7 +125,6 @@ const executeRoll = (getRandomIntegers) => (message) => parseNotation(message)
       .map(resolveSuccessRoll),
   );
 
-
 module.exports = {
   executeRoll,
 };

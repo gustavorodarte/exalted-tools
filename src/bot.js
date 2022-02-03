@@ -16,7 +16,8 @@ const parseRoll = (diceRoll, rollResult) => {
 };
 
 const makeBotResponse = (bot, msg, rollParsed) => {
-  const message = `**${msg.member.nick}** rolls ${rollParsed}`;
+  const username = msg.member.nick || msg.author.username;
+  const message = `**${username}** rolls ${rollParsed}`;
   return bot.createMessage(msg.channel.id, message);
 };
 

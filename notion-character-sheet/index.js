@@ -11,6 +11,34 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DATABASE_ID;
 
+const AbilityEmojiMap = {
+  Archery: "🏹",
+  Athletics: "🏋️‍♂️",
+  Awareness: "👁️",
+  Bureaucracy: "💰",
+  Craft: "🛠️",
+  Dodge: "🤸",
+  Integrity: "🧘",
+  Investigation: "🔍",
+  Larceny: "🕵️",
+  Linguistics: "✍️",
+  Lore: "📚",
+  "Martial Arts": "🥋",
+  Medicine: "🏥",
+  Melee: "🗡️",
+  Occult: "🔮",
+  Performance: "💃",
+  Presence: "🗣️",
+  Resistance: "🛡️",
+  Ride: "🏇",
+  Sail: "⛵",
+  Socialize: "👸",
+  Stealth: "🥷",
+  Survival: "🐾",
+  Thrown: "🪃",
+  War: "⚔️",
+};
+
 async function addNotionPageToDatabase(databaseId, customPayload) {
   const newPage = await notion.pages.create({
     parent: {
@@ -54,6 +82,14 @@ const execute = async () => {
         type: "multi_select",
         multi_select: [{ name: charm.duration }],
       },
+      "Origin Book": {
+        type: "multi_select",
+        multi_select: [{ name: charm.origin }],
+      },
+      Note: {
+        type: "multi_select",
+        multi_select: [{ name: charm.note || "None" }],
+      },
       "Prerequisite Charms": {
         type: "rich_text",
         rich_text: [
@@ -79,9 +115,14 @@ const execute = async () => {
       },
     ];
 
+    const icon = {
+      emoji: AbilityEmojiMap[charm.ability] || "🔆",
+    };
+
     return {
       properties,
       children,
+      icon,
     };
   });
 

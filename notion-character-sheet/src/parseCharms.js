@@ -1,22 +1,79 @@
 const charmsJson = require("../resources/Charm.json");
 const fs = require("fs");
 
-const charmsSplitted = Array.from(charmsJson).reduce((acc, curr) => {
-  const isStartOfNewCharm = curr.includes("\n\n");
+const castes = [
+  "DAWN CASTE",
+  "ZENITH CASTE",
+  "NIGHT CASTE",
+  "ECLIPSE CASTE",
+  "TWILIGHT",
+];
+const abilities = [
+  "Archery",
+  "Athletics",
+  "Awareness",
+  "Bureaucracy",
+  "Craft",
+  "Dodge",
+  "Integrity",
+  "Investigation",
+  "Larceny",
+  "Linguistics",
+  "Lore",
+  "Martial Arts",
+  "Medicine",
+  "Melee",
+  "Occult",
+  "Performance",
+  "Presence",
+  "Resistance",
+  "Ride",
+  "Sail",
+  "Socialize",
+  "Stealth",
+  "Survival",
+  "Thrown",
+  "War",
+].map((ability) => ability.toUpperCase());
+
+const sectionTitles = [...castes, ...abilities];
+
+const charmsSplitted = Array.from(charmsJson).reduce((charmsText, line) => {
+  const isStartOfNewCharm = line.includes("\n\n");
+
+  const lineWithoutSectionTitles = sectionTitles.reduce(
+    (charmLine, sectionTitle) => {
+      return charmLine.replaceAll(sectionTitle, "");
+    },
+    line
+  );
 
   if (!isStartOfNewCharm) {
-    const lastCharm = acc.pop();
+    const lastCharm = charmsText.pop();
 
-    return [...acc, [...lastCharm, curr]];
+    return [...charmsText, [...lastCharm, lineWithoutSectionTitles]];
   }
 
-  return [...acc, [curr]];
+  return [...charmsText, [lineWithoutSectionTitles]];
 }, []);
 
 const charmsMapped = charmsSplitted.map((charmInfo) => {
+  // const title = charmInfo[0]?.replaceAll("\n", "");
+
+  const [oldTitle, ...restOfString] = charmInfo[0]
+    ?.replaceAll("\n", "")
+    .split(/(?=[a-z])/);
+
+  const [origin, note] = [oldTitle[oldTitle.length - 1], ...restOfString]
+    .join("")
+    .split(" (");
+  const title = oldTitle.slice(0, -1);
+
   return {
     ability: charmInfo[2]?.replaceAll("Mins: ", "").split(" ")[0],
-    title: charmInfo[0]?.replaceAll("\n", ""),
+    title,
+    origin,
+    note: note?.slice(0, -1),
     cost: charmInfo[1]?.replaceAll("Cost: ", ""),
     mins: charmInfo[2]?.replaceAll("Mins: ", ""),
     type: charmInfo[3]?.replaceAll("Type: ", ""),

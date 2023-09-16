@@ -11,66 +11,87 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-const getPage = async () => {
-  try {
-    const { results, next_cursor } = await notion.databases.query({
-      database_id: "06288a1faf9f4ed59e9b967e784049d8",
-    });
-    console.log("🚀 ~ file: index.js:19 ~ getPage ~ results", results);
-
-    const response = await notion.pages.properties.retrieve({
-      page_id: "06288a1faf9f4ed59e9b967e784049d8",
-    });
-    console.log(response);
-    console.log("Success! Entry added.");
-  } catch (error) {
-    console.error(error.body);
-  }
-};
-
-const postDatabase = async (properties) => {
-  const result = await notion.databases.update({
+async function addNotionPageToDatabase(databaseId, customPayload) {
+  const newPage = await notion.pages.create({
     parent: {
-      page_id: "ecbb03a3ab7b428e9a8fb8818437917e",
+      database_id: databaseId,
     },
-    properties: ''
+    ...customPayload,
   });
-
-  return result;
-};
+  console.log(newPage);
+}
 
 const execute = async () => {
-  const properties = charmsJson.map((charm) => {
-    return {
+  const payload = charmsJson.map((charm) => {
+    const properties = {
       title: {
-        rich_text: charm.title,
+        type: "title",
+        title: [{ type: "text", text: { content: charm.title } }],
       },
-      cost: {
-        rich_text: charm.cost,
+      Ability: {
+        type: "multi_select",
+        multi_select: [{ name: charm.ability }],
       },
-      mins: {
-        rich_text: charm.mins,
+      Cost: {
+        type: "rich_text",
+        rich_text: [{ type: "text", text: { content: charm.cost } }],
       },
-      type: {
-        rich_text: charm.type,
+      Mins: {
+        type: "rich_text",
+        rich_text: [{ type: "text", text: { content: charm.mins } }],
       },
-      keywords: {
-        rich_text: charm.keywords,
+      Type: {
+        type: "rich_text",
+        rich_text: [{ type: "text", text: { content: charm.type } }],
       },
-      duration: {
-        rich_text: charm.duration,
+      Keywords: {
+        type: "multi_select",
+        multi_select: charm.keywords
+          .split(", ")
+          .map((keyword) => ({ name: keyword })),
       },
-      prerequisiteCharms: {
-        rich_text: charm.prerequisiteCharms,
+      Duration: {
+        type: "multi_select",
+        multi_select: [{ name: charm.duration }],
       },
-      description: {
-        rich_text: charm.description,
+      "Prerequisite Charms": {
+        type: "rich_text",
+        rich_text: [
+          { type: "text", text: { content: charm.prerequisiteCharms } },
+        ],
       },
+    };
+
+    const children = [
+      {
+        object: "block",
+        type: "paragraph",
+        paragraph: {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: charm.description,
+              },
+            },
+          ],
+        },
+      },
+    ];
+
+    return {
+      properties,
+      children,
     };
   });
 
-  const result = await postDatabase(properties);
-  console.log("🚀 ~ file: index.js:74 ~ execute ~ result:", result);
+  for (let i = 0; i < payload.length; i++) {
+    // Add a few new pages to the database that was just created
+    await addNotionPageToDatabase(
+      "3a922ee144bd4bcf9b43f21688410374",
+      payload[i]
+    );
+  }
 };
 
 execute();

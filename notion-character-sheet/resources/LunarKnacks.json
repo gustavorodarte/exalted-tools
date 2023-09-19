@@ -1,0 +1,284 @@
+[
+    {
+        "Name": "HUMBLE MOUSE SHAPE",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Stamina 3",
+        "Info": "This Knack teaches a character the proper ritual to begin a sacred hunt for smaller animals. Normally, a Lunar cannot master a shape smaller than a housecat. Now, creatures as small as a mouse become valid targets for the blood hunt. The hunt typically takes about half as long for creatures of this size. This Knack expands the range of possible spirit shapes for a starting character."
+    },
+    {
+        "Name": "EMERALD GRASSHOPPER FORM",
+        "Source": "Corebook",
+        "Prerequisites": "Humble Mouse Shape, Essence 3, Stamina 4",
+        "Info": "A character with this Knack can become the literal fly on the wall. Creatures as small as the typical housefly become valid targets for the blood hunt (though some Lunars feel a bit silly spending six hours stalking an insect)."
+    },
+    {
+        "Name": "TOWERING BEAST FORM",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Stamina 3",
+        "Info": "Lunars without this Knack cannot master shapes any larger than something about the size of an adult moose. With it, even creatures as large as yeddim and tyrant lizards become valid targets of the sacred hunt. This Knack expands the range of possible spirit shapes for a starting character."
+    },
+    {
+        "Name": "MOUNTAINOUS SPIRIT EXPRESSION",
+        "Source": "Corebook",
+        "Prerequisites": "Towering Beast Form, Essence 3, Stamina 4",
+        "Info": "Lunar Exalted who take this Knack increase the size of their spirit shape. The size increase requires no extra effort\u2014the Lunar\u2019s animal true form doubles in size. Strength, Stamina and health levels may increase, if appropriate, as if the spirit form carried the Large mutation. Many Lunars never choose this Knack, especially those with small or subtle spirit shapes. Some Lunars choose to increase the size of their totem forms further, creating custom Knacks for the purpose."
+    },
+    {
+        "Name": "ILLIMITABLE BEAST DECLARATION",
+        "Source": "Lords of Creation",
+        "Prerequisites": "Emerald Grasshopper Form or Towering Beast Form, Essence 5, Stamina 5",
+        "Info": "Lunars who develop this Knack for their shape shifting know no limit to the size of natural animals they may hunt. It extends the capabilities of Emerald Grasshopper Form into the infinitesimal, so there is no natural animal too small. It likewise improves Towering Beast Form into the infinite, so no natural animal is too large. If the Lunar cannot hunt a natural animal that is larger than the Last Supplicant or smaller than the head of a pin, it is not because he lacks the ability\u2014it is because the animal does not exist.\n A character without Emerald Grasshopper Form is limited to infinitely larger forms and one without Tow\u00adering Beast Form is limited to infinitely smaller forms. Possessing small forms, such as a flea or a tiny krill, add 3 or more to the Lunar's DVs (though also probably make parrying impossible). Lunars who take enormous forms also learn to absorb massive amounts of damage, as suc\u00adcessfully evading an attack becomes increasingly unlikely with growing size."
+    },
+    {
+        "Name": "EMPEROR OX EXPANSION",
+        "Source": "Lords of Creation",
+        "Prerequisites": "Mountainous Spirit Expression, Essence 5, Stamina 5",
+        "Info": "Lunars with this Knack crush their opposition with the sheer might of a massive spirit shape. The character spends a point of Willpower when donning her spirit shape to make it large enough to engage in mass combat as a unit with a Magnitude equal to the Lunar's Essence. Represent the Lunar's size outside of mass combat by increasing her Strength and soak by an amount equal to her Essence.\n Assuming the Emperor Ox Expansion form takes time. The Speed of the shapeshifting action is measured in long ticks, and even a Lunar using Lightning-Change Style re\u00adquires one long tick to activate Emperor Ox Expansion."
+    },
+    {
+        "Name": "BECOMING THE SWARM",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Emerald Grasshopper Form, Essence 4, Dexterity 4",
+        "Info": "This Knack enables the Lunar to subdivide his body into a swarm of lesser creatures. These creatures individually may be no larger than a rat. The Lunar is free to mix and match different types of creatures in the swarm, but if he wishes to use unconventional forms of locomotion (such as flight or crawling up walls) all creatures comprising the swarm must be capable of such movement. \n The swarm encompasses an area (Stamina x 2) yards in diameter and retains all of the Lunar\u2019s usual Attributes and Abilities. The only attack it is capable of is a clinch (Accuracy +4, Damage +[Essence]L, Defense \u2014, Rate 1, Tags C,N,P). In lieu of crushing the target, a swarm consisting primarily of venomous animals may instead inflict a toxin on the victim during a successful clinch, equivalent to arrow frog venom (see Exalted, p. 131). The swarm treats all attacks against it as unblockable, but adds an amount equal to half the character\u2019s Dexterity to its Dodge DV against attacks that are not large enough to encompass the entire swarm."
+    },
+    {
+        "Name": "HUNGRY ALL-CONSUMING CLOUD",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Becoming the Swarm, Emperor Ox Expansion, Essence 5, Dexterity 6",
+        "Info": "By paying an extra point of Willpower, the Steward may expand his swarm form into an allencompassing plague that sweeps across the land, stripping crops and flesh alike bare in moments. The rules for swarm composition and movement are identical to Becoming the Swarm. \n The cloud covers an area (Stamina x 20) yards in diameter. Characters trapped within are subjected to an ongoing environmental attack with a Damage of (Strength)L/action and a Trauma of 2. If the cloud consists primarily of venomous animals, the Lunar may inflict a poison equivalent to arrow frog venom rather than damage during each damage interval. The Lunar is immune to any attack that encompasses less than one-fifth of his total mass (any sufficiently large attack is considered unblockable). The only action he can take as a swarm cloud is a special \u201capply environmental damage\u201d miscellaneous action (Speed 5, DV -1) that leaves him able to observe his surroundings, apply his Dodge DV and move. (This miscellaneous action may not be part of a flurry.) Three motes must be paid on each action in order to sustain this form."
+    },
+    {
+        "Name": "TYRANT MOUSE DOMINION",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Emerald Grasshopper Form, Mountainous Spirit Expression, Essence 4, Stamina 4",
+        "Info": "This Charm permanently enhances all of the shapes in a Lunar\u2019s Heart\u2019s Blood library, offering several benefits. First, the Steward may optionally choose not to apply the benefit of Mountainous Spirit Expression to his spirit shape when he assumes that form. Second, upon assuming any animal form from his Heart\u2019s Blood library (but not human or supernatural forms), he may pay an extra mote to apply the Small mutation, creating the potential for horse-sized tyrant lizards or pocket-dwelling falcons. Finally, the Lunar may optionally pay an extra mote to apply the Large mutation to any animal form in his Heart\u2019s Blood library, with effects identical to Mountainous Spirit Expression."
+    },
+    {
+        "Name": "TITAN MENAGERIE METHOD",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Emperor Ox Expansion, Tyrant Mouse Dominion, Essence 5, Stamina 6",
+        "Info": "This Knack permits a Lunar to spend an extra point of Willpower to apply the benefits of Emperor Ox Expansion to any animal form in his Heart\u2019s Blood library."
+    },
+    {
+        "Name": "GOD-BEAST TRANSCENDENCE",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Emperor Ox Expansion, Essence 10, Stamina 10",
+        "Info": "This Knack enhances Emperor Ox Expansion. By adding an extra two-Willpower surcharge on top of the one-Willpower cost to invoke that Knack, the Lunar may swell his spirit shape into a sanity-defying behemoth, able to darken cities with its shadow and crush buildings with its tread. The Yozi Isidoros is said to consider the very existence of this Knack an affront to his majesty. \n In addition to Emperor Ox Expansion\u2019s normal benefits, the Lunar also adds (Essence x 10) to his Strength for the purpose of inflicting damage, performing feats of strength and gaining control of or escaping (but not establishing) a clinch. It also adds (Essence x 10) to his Stamina for the purpose of determining soak. He also gains a natural Hardness equal to half his modified natural lethal and bashing soak, respectively. These benefits apply in both standard and mass combat.\n The Lunar accumulates one point of Limit at the end of each scene in which this Knack is employed."
+    },
+    {
+        "Name": "PREY\u2019S SKIN DISGUISE",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Appearance 3",
+        "Info": "This Knack enables the Lunar to take the form of another human (or basically human creature). She develops an instinctive understanding of the different sacred hunt necessary to make humans valid targets of the hunt. Taking on a false human shape costs a point of Willpower.\n The base time of the hunt is half a day, during which time the character studies the person\u2019s habits and nature, absorbing them the same way she will steal the person\u2019s body. Some Lunars watch their victims covertly during the process; others hunt the target viciously, tormenting him and studying his reactions until the final blow. The latter method is faster but more difficult to perform in high-population areas. Either way, it\u2019s murder (unless the Lunar has Life of the Hummingbird and merely takes a person\u2019s shape temporarily). Taking a human\u2019s Heart\u2019s Blood triggers a Compassion roll in any character with Compassion 3 or greater, and each success adds one point of Limit to the Lunar\u2019s total, no matter what his dominant Virtue may be.\n Lunars pursue human forms for many reasons: Having even a single human false form is useful when one\u2019s true form becomes dangerous and an animal shape is inappropriate. Some human forms are useful for their identities\u2014becoming Great Forks\u2019 Minister of Lore is a significant advantage.\n Finally, different human forms may have access to different resources. Stealing a wealthy merchant\u2019s form gives the character a lot of money to throw around, and becoming a friendly socialite comes with a host of contacts and allies. Lunar Exalted may benefit from these stolen Backgrounds temporarily, but they require effort to maintain\u2014otherwise, the investments dry up, and friends forget about the person who is no longer often around.\n Exalted and other human creatures may have Charms and other powers of their own. Taking on one\u2019s form through the sacred hunt does not give the Lunar access to any of their Essence-based powers. Taking a Lunar\u2019s form in this way provides only the Lunar\u2019s human true form, not the spirit shape or any other form the victim might know. For that, a character needs Taste of Luna\u2019s Champions."
+    },
+    {
+        "Name": "HONING THE STOLEN FORM",
+        "Source": "Corebook",
+        "Prerequisites": "Prey\u2019s Skin Disguise, Essence 3, Perception 4",
+        "Info": "Heart\u2019s Blood forms generally do not change with time. Just as they do not age, neither do they grow stronger, fatter or weathered from experience. This Knack allows a character to increase stolen human forms\u2019 physical Attributes just as she can increase her own. Increasing a stolen human form\u2019s Attributes costs the same amount of experience as to increase the character\u2019s own. The change is permanent."
+    },
+    {
+        "Name": "INTIMATE TRAINING RECOLLECTION",
+        "Source": "Corebook",
+        "Prerequisites": "Prey\u2019s Skin Disguise, Essence 3, Intelligence 3",
+        "Info": "With practice, a Lunar can learn to consume a bit of a human\u2019s mind and soul along with his body. This Knack creates one \u201cfloating\u201d Ability dot. Each scene, the Lunar can allocate this dot to an Ability held by a human whose form the Lunar took, but that he himself lacks. If a Lunar also has Life of the Hummingbird, he can access the Abilities of a person whose shape the Lunar has temporarily stolen. The \u201cfloating\u201d Ability dot cannot be raised through training (though the character could train himself, using the stolen memories, to gain his first dot in an Ability) and cannot be added to Abilities the Lunar has already. Calling up an Ability this way costs one Willpower per scene.\n At Essence 5 and Intelligence 5, a Lunar can buy this Knack again to gain two \u201cfloating\u201d Ability dots. These cannot stack: Each point must carry a different Ability. Linguistics or Craft are special exceptions: The character could assign the dots to two different languages or gain one dot each in two different crafts, such as Craft (Air) and Craft (Wood).\n See also Lessons in the Blood (p. 189), which does something similar."
+    },
+    {
+        "Name": "FLICKERING STAR INFUSION",
+        "Source": "Corebook",
+        "Prerequisites": "Honing the Stolen Form, Intimate Training Recollection, Essence 4, Manipulation 4",
+        "Info": "When one of the Lunar Exalts hunts a person and adds that body to the Lunar\u2019s library of forms, the victim\u2019s star flickers out and dies. Victims of the sacred hunt become invalid targets for astrology and other effects that target them by name or specific identity. Lunars occasionally find this weakness in their perfect disguises detrimental.\n This Knack prevents that problem. When the Lunar takes a new human shape, she also consumes that person\u2019s destiny, though it remains subordinate to her own destiny and will. As long as the Lunar lives, so do the stars of every person whose heart\u2019s blood she took after learning this Knack. Effects that target those individuals specifically, such as Sidereal astrology and some spells, function against her (or to her benefit).\n Ongoing effects, such as those from astrology, affect the Lunar whenever she assumes the targeted form. Instantaneous effects, such as an invocation of Infallible Messenger, target the Lunar no matter her current form. She may reflexively refuse any such an effect before it takes place; she does not know what the effect is without the use of Charms, and the effect\u2019s instigator realizes there is some unknown malfunction. Forms that the Lunar possessed before she learned this Knack have already been stricken from Heaven\u2019s records; their stars do not return to the sky."
+    },
+    {
+        "Name": "LUNAR BLOOD SHAPING TECHNIQUE",
+        "Source": "Corebook",
+        "Prerequisites": "Prey\u2019s Skin Disguise, Essence 3, Charisma 4",
+        "Info": "Lunars can learn more than to simply take human shapes\u2014Lunars can give their shapes to other humans. A Lunar must feed her target a taste of the Lunar\u2019s blood. Then, if the target is willing, he takes the shape of one human or animal from the Lunar\u2019s library. True forms cannot be shared. The transformation lasts for one hour if the Lunar provides only a lick of blood, and lasts a full day if she provides one lethal health level\u2019s worth of blood.\n Targets of this Knack have no control over the transformation outside the ability to refuse it at the start. After a target transforms, he remains in his new shape for the effect\u2019s duration. While the target wears the form given him by the Lunar, the character loses access to that shape."
+    },
+    {
+        "Name": "INSIDIOUS LUNAR TRANSFORMATION",
+        "Source": "Corebook",
+        "Prerequisites": "Lunar Blood Shaping Technique, Essence 5, Charisma 5",
+        "Info": "This Knack enhances Lunar Blood Shaping Technique. Once the Lunar feeds an amount of his blood to a target unwilling to change, the Lunar and target\u2019s players make opposed (Willpower + Essence) rolls. If the Lunar wins, the target is forced into the chosen form for the normal duration, depending on how much blood she consumed. Otherwise, there is no effect."
+    },
+    {
+        "Name": "GREEN SUN CHILD",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 4, Intelligence 4",
+        "Info": "Creatures from outside Creation are beyond the powers of most Lunars. Some, however, strain to master the unnatural shapes of demonkind, to wear their skins. This was one of the most-used Knacks during the Primordial War, as Lunars strove to infiltrate their enemies. Green Sun Child makes demons valid targets for the sacred hunt, which takes the same default time as the hunt for a human. Demons who do not have blood are still valid targets; the Lunar simply has to consume some part of their vital ichors or insides. Characters do not get any of the demon\u2019s Essence-based powers.\n Though the natural state of a demon is incorporeal, the Lunar\u2019s natural state remains material."
+    },
+    {
+        "Name": "HEART-THEFT OF THE BEHEMOTH",
+        "Source": "Corebook",
+        "Prerequisites": "Green Sun Child, Essence 5, Stamina 5",
+        "Info": "In the First Age, Luna\u2019s mightiest and most clever warriors learned how to hunt down the Primordials\u2019 greatest weapons and steal their shapes and power. This Knack makes even the strangest monster-beasts valid targets for the sacred hunt. Characters with this Knack may take on the shape of primordial creatures that are no larger than a tyrant lizard and rampage to their hearts\u2019 contents. An Essence 7 and Stamina 7 version of the Knack opens the blood hunt to all primordial behemoths."
+    },
+    {
+        "Name": "HEARTH-AND-FLAME SHELL",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 4, Stamina 4",
+        "Info": "Elementals are part of Creation\u2014in a way, they comprise it. With this Knack, the character adds elementals to the list of the valid targets for the scared hunt. Hunting an elemental takes the same basic amount of time as hunting a human. Ending the hunt requires the Lunar to consume some vital part of the subject\u2014for some elementals, this may cause the Lunar pain or harm. When the Lunar dons an elemental\u2019s shape, she acquires its elemental nature. She cannot use any of its Essence-fueled powers, but she may still benefit (or suffer) from being made of a certain element. A Lunar wearing a flaming skin may start fires or hurt others by touching them, and water may cause her harm, for example."
+    },
+    {
+        "Name": "LUNA\u2019S HIDDEN FACE",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 3, Perception 4",
+        "Info": "Lunars have difficulty taking on a shape unnatural to Creation. This Knack makes creatures mutated by the Wyld, even to such an extent that they become unviable bloodlines in Creation, valid targets of the sacred hunt. A Lunar does not gain any of the creature\u2019s Essence-based powers."
+    },
+    {
+        "Name": "HEAVENLY SERVANT IMITATION",
+        "Source": "Lords of Creation",
+        "Prerequisites": "Green Sun Child, Hearth-and-Flame Shell, Essence 6, Intelligence 6",
+        "Info": "Luna's Children were never meant to take the shapes of the gods. That ability would only encourage ambition that even pre-rebellious Incarnae thought to fear. Some Lunars transcend this limitation, mastering a blood hunt capable of adding a god to the Lunar's library of forms. The hunt takes the same basic amount of time as hunting a human. Acquir\u00ading a god without blood requires the Lunar to consume its divine ichors or other vital part. The Lunar cannot use any of the god's Essence-fueled powers."
+    },
+    {
+        "Name": "ESSENTIAL MIRROR FORM",
+        "Source": "Lords of Creation",
+        "Prerequisites": "One of various Knacks, Essence 6+, Intelligence 6+",
+        "Info": "To be masters of infiltration, the Lunar Exalted must mimic their victims' powers. Essential Mirror Form gives the Lunar the ability to use the Essence-based powers of one kind of supernatural creature, as defined by the Knacks that make them valid targets of the sacred hunt. This includes basic elemental powers such as Dragon's Suspire and unique Charms the creatures possess. She can activate such powers only as long as she remains in the form to which those powers are natural. Each such invocation requires an additional cost of one point of Willpower, and since displaying an anima returns a Lunar to one of her true forms, the Lunar has a limited amount of Essence with which to work. If using a Charm or power acquired in this way activates the Lunar's anima to a degree that forces her back into a true form, the effect functions as normal. Effects with extended durations end when their descriptions say, not early because the Lunar leaves the shape.\n This Knack can be purchased multiple times to affect additional creature types, though it never makes available the Charms of other Exalted. To purchase this Knack, the relevant prey must be a valid target of the blood hunt. The Lunar must also have an Essence and Intelligence two higher than the Essence and Attribute requirements for the Knack that opens that type of creature to the Lunar's hunt.\n Primordial Charms (including those of the Yozis) are considered \u201cthe Charms of other Exalted\u201d for the purpose of this Knack. This Charm also will not allow Lunars to use any Charm with the Native Keyword."
+    },
+    {
+        "Name": "HUNGRY DREAM CLOAK",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Luna\u2019s Hidden Face, Essence 4, Wits 4",
+        "Info": "This difficult trick, popular among the Swords of Luna, permits a Lunar to drink in the woven lies the raksha use for blood and treat them as true. Fair Folk become valid targets for the sacred hunt, with the same default time as for a human. The Lunar does not gain access to Charms or other raksha powers."
+    },
+    {
+        "Name": "SHIFTING WYLD TIDES",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Hungry Dream Cloak, Essence 5, Wits 5",
+        "Info": "Upon slaying a raksha during the course of the sacred hunt, the Lunar may opt to forgo adding her shape to his Heart\u2019s Blood library, instead forging her into a Cup, Staff, Ring or Sword Grace for himself. Newly created Graces begin at a rating of 1. Alternatively, the Lunar may use a raksha slain in the course of the sacred hunt to improve an existing Grace. It takes a number of slain raksha equal to the new desired Grace rating in order to improve a Lunar Grace. (For example, a Lunar looking to raise his Cup Grace from 3 to 4 would need to hunt and slay four raksha.)\n As an additional and final benefit, this Knack permits the character to learn Fair Folk Charms for only 10xp each (see Graceful Wicked Masques\u2014 The Fair Folk, p. 93, for more details)."
+    },
+    {
+        "Name": "ASH AND TEARS BANQUET",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Hearth-and-Flame Shell or Green Sun Child, Prey\u2019s Skin Disguise, Essence 5, Intelligence 5",
+        "Info": "Meditating upon the emptiness of the new moon, Lunars may gain certain insights into the nature of darkness. A character with this Knack may treat ghosts as valid targets for the sacred hunt, with the same default time as for a human, though their thin plasm is a poor substitute for real blood. The Lunar does not gain access to Arcanoi or other Essence-driven powers."
+    },
+    {
+        "Name": "LAURELS-AND-IVY TECHNIQUE",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 4, Perception 4",
+        "Info": "A few Lunars learn to assume the shapes of plants and other non-animal life. This Knack adds \u201cplants\u201d to the list of valid targets for the sacred hunt. Hunting a plant requires the character to meditate in the presence of many such plants for a base time of 12 hours. When the Lunar changes, he becomes a plant of approximately equal mass\u2014many creepers of ivy or a small tree.\n Lunar Exalted in the form of plants have only limited perception. They suffer a -2 internal penalty to all attempts to detect their surroundings. In plant form, a Lunar is constantly Inactive in any form of combat, but the character may change this at will by changing shape."
+    },
+    {
+        "Name": "LIFE OF THE HUMMINGBIRD",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Wits 3",
+        "Info": "Sometimes, the Lunar Exalted don\u2019t have time to perform a full blood hunt, or need to take a shape without killing its owner. A Lunar can take on an animal\u2019s (or human\u2019s) shape without performing the sacred hunt so long as he gets a taste of its blood.\n The new form does not last long. A simple taste of blood, even a minor trickle, gives the Lunar access to the shape for the next hour. More blood, which must be drawn by the character and accompanied by some sharp pain (inflicting at least one lethal health level), adds the shape to the character\u2019s library for one full day. The duration begins counting down the moment the blood leaves the body\u2014a Lunar may not store blood for later use or lick up old, dried blood for the benefit. Any creature that is a valid target for the Lunar\u2019s sacred hunt can provide this benefit.\n Without activating the blood hunt, a Lunar may take as little as a few minutes to find the blood of the right creature (for common, small animals) or a half-hour to an hour for larger or less common animals. At the Storyteller\u2019s discretion, this may take even longer, but it should never take more than half as long as the sacred hunt for the equivalent creature."
+    },
+    {
+        "Name": "COMPASSIONATE MIRROR NATURE",
+        "Source": "Lords of Creation (Modified)",
+        "Prerequisites": "Life of the Hummingbird, Essence 3, Perception 4",
+        "Info": "The Lunar understands a compassionate alternative to the standard hunt for a shapes. She dedicates the sacred hunt to Luna with an invocation of her belief in guarding Creation and its life, then she pursues her quarry as normal. Once the period of observation is over, she renders her victim unconscious (not dead) and tastes his blood. She acquires his shape permanently, but the victim lives. When the victim dies, the effects of Flickering Star Infusion begin as normal, as if the Lunar had killed the victim outright. Taking a human form in this way triggers no Compassion roll."
+    },
+    {
+        "Name": "COURTESAN'S POSSESSION",
+        "Source": "Lords of Creation (Modified)",
+        "Prerequisites": "Compassionate Mirror Nature, Essence 4, Charisma 4",
+        "Info": "Blood is unnecessary for a Lunar who applies this Knack to his shapeshifting. He may add a target of his sacred hunt through the act of sexual intercourse rather than by slaying it and taking its heart's blood (or by merely defeating it, as with Compassionate Mirror Nature). It must still come at the culmination of a full hunt, unless the Exalt possesses Life of the Hummingbird and wishes to have the form only temporarily.\n Taking a form in this way does not trigger a Compassion roll. Should targets hunted with this Knack die, you may still benefit from the effects of Flickering Star Infusion."
+    },
+    {
+        "Name": "TASTE OF LUNA\u2019S CHAMPIONS",
+        "Source": "Corebook",
+        "Prerequisites": "Life of the Hummingbird, Essence 3, Perception 4",
+        "Info": "The character with this Knack has the power to taste the blood of another Lunar Exalt, who must be willing, and learn a shape the other Lunar has mastered. The Knack requires a 15-minute ritual and costs a point of Willpower from the Lunar using this Knack, whose player rolls (Willpower + Essence). Each success increases the number of shapes he may learn by one (from a base of one) or doubles the period over which he can use each shape (base one hour). The character can instead master a shape forever by spending a point of experience per shape.\n This Knack also gives the Lunar a rarely used ritual that targets another Lunar as the subject of the sacred hunt. In this case, the character must hunt down and fight the target Lunar. After killing the target, the Lunar drinks the target\u2019s heart\u2019s blood and gains every shape the other Lunar has mastered and the target\u2019s human and animal true forms (though they do not become new true forms). \n The war form is too unique to each Lunar\u2019s Essence to be duplicated in this way. (Note that cannibalizing a selection of heart\u2019s blood forms increases the character\u2019s Heart\u2019s Blood Background. Some Storytellers may rule that this costs experience points\u2014see pp. 232-233.)"
+    },
+    {
+        "Name": "MOON AND EARTH SONG",
+        "Source": "Lords of Creation",
+        "Prerequisites": "Laurels-and-Ivy Technique, Essence 7, Percep\u00adtion 7",
+        "Info": "This Knack allows the Lunar to pay 10m, 1wp to assume the form of a natural geographic feature\u2014a cloud bank, a mountain, a forest, a stretch of river, a creeping fog. The Lu\u00adnar must have within her heart\u2019s blood library the form of a spirit corresponding to the feature she wishes to become\u2014a river god, for example, if she wishes to become a river. The Lu\u00adnar is only semi-mobile in this form, moving at most ten miles per day, and unable to directly act upon anything venturing within her boundaries, though she may observe the interior of her being from any point as though she were present, and adds three dice to all Perception rolls to notice intruders within her. While not immune to damage in landscape form, per se, the Lunar is formidably protected\u2014destroying a Lunar wear\u00ading the form of a mountain, for example, would likely require Solar Circle sorcery or powerful artifacts of mass destruction. \n The Lunar may not destroy any existing landscape fea\u00adtures by using this Knack; existing geography instead recon\u00adfigures itself to account for the new inclusion. For example, if the Lunar were to become a river winding its way through the middle of Whitewall, the city\u2019s streets and roads would temporarily route themselves around it, span the Lunar with bridges, and so forth. A Lunar who became a forest in Nexus would briefly transform Nexus into a thriving trade city lo\u00adcated in the heart of a forest. The Lunar also may not assume a geographic form in a place where it is impossible for that feature to exist (clouds, for example, are rarely found under\u00adwater, and mountains and rivers generally do not float two hundred feet above the ground), unless she is in the Wyld. Finally, the Lunar\u2019s Tell extends to blanket her in a veil of normalcy; observers must pierce the Tell in order to realize there is anything unusual about a mountain suddenly spring\u00ading up overnight."
+    },
+    {
+        "Name": "SOMNOLENT STATUARY METHOD",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Essence 4, Stamina 4",
+        "Info": "Spending five long ticks in contact with a nonorganic material allows the Lunar to subsume herself into it as a normal shapeshifting action. She may sink into the ground, becoming earth herself, or merge with a stone wall, becoming granite or marble as desired. The Lunar may remain merged within the substance for as long as desired, but she cannot move, speak or act, and she takes a -2 external penalty to all attempts to perceive her surroundings. Yet, she is impossible to locate without Essence sight. She may emerge from her tomb at any time as a reflexive action. She is automatically ejected if the surface in which she is hiding is damaged. \n Characters age at only half the normal rate while merged with a substance through this Knack."
+    },
+    {
+        "Name": "HYBRID BODY REARRANGEMENT",
+        "Source": "Corebook / Scroll of Errata",
+        "Prerequisites": "Essence 3, Wits 3",
+        "Info": "A dedicated Lunar can learn to change just part of his body to gain some special benefit or attack. The character may transform part of her body, producing any mutation she desires, so long as the mutation is based on her spirit shape or a shape in her heart\u2019s blood library. Producing a pox or deficiency costs 1m, an affliction or debility costs 2m, a blight or deformity costs 3m, and an abomination costs 4m. These motes are not committed, the Lunar may simultaneously wear as many mutations as she wishes, and the mutations last as long as the Lunar desires. Such mutations do not recede when the character\u2019s anima flares to the 8m+ level."
+    },
+    {
+        "Name": "MONKEY ARM STYLE",
+        "Source": "Corebook",
+        "Prerequisites": "Hybrid Body Rearrangement, Essence 4, Dexterity 4",
+        "Info": "Some Lunars learn more than to simply change their shape and appearance. This technique allows the character to elongate her limbs and digits for the purpose of a single action. She multiplies the distance she may stretch an affected body part by the motes of Essence spent, and the character may not spend more than (Essence) motes. Because the increased flexibility sacrifices leverage and strength, attacking at extended range suffers a -2 penalty to accuracy and raw damage."
+    },
+    {
+        "Name": "CHANGING PLUMAGE MASTERY",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Appearance 3",
+        "Info": "Shifting to another shape, the character develops greater control over superficial details. For any learned shape, she can control the creature\u2019s appearance to a degree. Fur or feathers can be any color appropriate to the creature, and such identifying marks as scars and birthmarks are under the character\u2019s control. Human shapes are more set, but the Lunar gains the ability to change the appearance of her clothes and hair length.\n This power becomes inherent to shifting shape, not something the character can alter without also changing shape. She can change shape to a variation of the same creature, changing superficial features in the transition to a near-identical shape."
+    },
+    {
+        "Name": "INTERNAL FORM MASTERY",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Wits 3",
+        "Info": "Lunars with this Knack learn how to master their false forms. When in other forms, human or otherwise, he may use the higher of his Dexterity or the form\u2019s Dexterity. He may still use the rating of a creature with less Dexterity, if he wishes\u2014perhaps to conceal his Exalted nature."
+    },
+    {
+        "Name": "SUBTLE SILVER DECLARATION",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Appearance 3",
+        "Info": "When the Lunar wears a shape that is not a true form, he may subdue his Tell so far that none can notice it. By spending one mote, the character ensures that his Tell\u2019s mental attack automatically succeeds for the rest of the scene as long as he is in a false shape. By spending one mote when in a true form, the character increases the base effectiveness of the Tell by two. This incidentally hides scars, birthmarks and other blemishes that could identify the character.\n When Peripheral Essence expenditure forces the character into a true form and makes his anima flare, he may spend a mote to prevent the Essence from making his Tell immediately obvious. He must spend the mote of Essence with each Essence expenditure to maintain this benefit."
+    },
+    {
+        "Name": "TWIN-FACED HERO",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 3, Wits 3",
+        "Info": "Not all Lunar Exalted are bound to their gender. This Knack enables a character to transcend gender, becoming either a male or female rendition of any form she dons. This includes her true forms. Both genders are fully functional in all ways\u2014she may sire or bear children, for example. The character makes the choice to shift gender as she changes shape, or she may spend the full Essence cost to change into a shape she already wears, just to shift gender. Some Lunars prefer a perfectly neuter shape, which this Knack also makes possible."
+    },
+    {
+        "Name": "ANT AND STARFISH TRICK",
+        "Source": "Glories of the Most High",
+        "Prerequisites": "Essence 7, Intelligence 5 Sometimes there are too many things in the world for a single hero to defend. This is no impediment to the most potent Stewards.",
+        "Info": "Using this Knack, the Lunar may subdivide his Essence into multiple bodies. Over the course of one long tick, the character extrudes a second body from his own. He must allocate a number of dots of permanent Essence into the double. Those dots are then removed from the main Lunar and are considered to be the double\u2019s permanent Essence rating. Creating a double requires the allocation of at least two dots of Essence, and the original Steward may not reduce himself below Essence 2. The character is free to invoke this Knack to create as many doubles as his Essence dots may be spread between. \n Doubles are semi-independent extensions of the Lunar\u2019s will. They share his personality, goals, traits (up to any limits imposed by their lower Essence ratings) and essentially operate as remote extensions of his mind. They do not consider themselves to be independent entities. Doubles cannot move more than a mile from the original Lunar, and will automatically denature into Essence if forcibly carried beyond that limit. They are able to use any Lunar Charms or Knacks the character knows and which their Essence rating allows. These Charms draw out of the original Lunar\u2019s Essence and Willpower pools, although doubles have independent health tracks. (Any damage required by Charm activation comes from the double\u2019s own health track.) A double\u2019s Charm selections are independent of the original Lunar\u2019s. A Lunar and his double may each use a different Charm at the same time without need of a Combo. \n In order to absorb the memories of anything learned by a double, or to enjoy any Heart\u2019s Blood additions gained by a double, the Lunar must touch the copy and spend a miscellaneous action (Speed 5, DV -0) re-absorbing it. Doing so also restores the Essence dots lent out to create it.\n If a double is slain, the Lunar regenerates the lost Essence dots at a rate of one per week."
+    },
+    {
+        "Name": "QUICKSILVER SECOND FACE",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Dexterity 4",
+        "Info": "By spending an extra mote, the character may change shape as a Speed 3 action instead of a normal miscellaneous action, which is Speed 5. He can change more quickly between any two forms for the extra cost."
+    },
+    {
+        "Name": "LIGHTNING-CHANGE STYLE",
+        "Source": "Corebook",
+        "Prerequisites": "Quicksilver Second Face, Essence 3, Dexterity 5",
+        "Info": "Sometimes a Lunar simply must change shape now. Perhaps battle is imminent or someone is about to discover the character\u2019s true identity. This Knack enables a Lunar to shapeshift as a completely reflexive action by adding three motes to the cost. Used in attack resolution, the change takes place in Step 1 or 2 and can apply a difficulty to the attack roll (for tiny shapes), increased soak or other benefits."
+    },
+    {
+        "Name": "CONSTANT QUICKSILVER REARRANGEMENT",
+        "Source": "Corebook",
+        "Prerequisites": "Lightning-Change Style, Essence 5, Wits 5",
+        "Info": "By committing four motes, the Lunar becomes able to change shape as a completely reflexive action. In combat time, the character may do so no more than once per tick. Lunar Exalted use this in combination with a wide range of forms to evade attacks through small size or soak them with great Stamina. Other uses include rapid evasion of pursuers (even other Lunars) or to bewilder enemies for purposes of confusion, interrogation, torture or other mind games."
+    },
+    {
+        "Name": "DEADLY BEASTMAN TRANSFORMATION",
+        "Source": "Corebook",
+        "Prerequisites": "Essence 2, Stamina 3",
+        "Info": "This Knack forms the basis of many Lunar battle techniques. Once a character learns it, she can shift into the fearsome war form of the Lunar Exalted, a monstrous amalgam of her two other true forms. The Steward usually gains several feet in height and increases proportionally in mass. Muscles ripple across her form, which usually has fearsomely long and sharp teeth and/or claws. Even if the Lunar\u2019s spirit shape is something as harmless as a groundhog, the hybrid war form looks awesomely dangerous. War forms are stronger, faster and more resilient than the character\u2019s normal forms. They have animal characteristics that give them an edge. Lunars in war form heal even faster than other Exalted, and war form allows them to make use of special aspects of certain Charms, called Gifts. Because Dexterity, animal qualities, healing and Gifts can all be useful outside of combat, some Lunars use war forms for purposes other than combat. At the very least, the war form is a tool of purpose\u2014the Lunar dons this form to accomplish a goal. Design the war form as follows:\n \u2022 Bonus Attributes. When a character takes Deadly Beastman Transformation, her player adds one dot each to the character\u2019s Strength, Dexterity and Stamina. This increase can bring a character\u2019s physical Attributes above five and only affect the character when she is in war form. Any improved Attributes are considered natural when calculating the Lunar\u2019s dice maximums. (See the box on p. 128 for a description of natural Attributes.)\n \u2022 Wyld Mutations. The character\u2019s player adds mutations to the form to represent animalistic features. She chooses from the list of Wyld mutations in Exalted, pages 288-290, or creates her own, then applies these to the war form. The player has (Essence + 4) special bonus points to spend on mutations, using the costs given on page 101. Increases in Essence later on allow the player to choose further mutations or \u201cupgrade\u201d existing mutations.\n Ignore all negative aspects to these mutations beyond the obvious and frightening change in appearance. These are not actually Wyld mutations; they represent the admixture of human and animal of the hybrid form. Players can only choose or create mutations appropriate to the characters\u2019 spirit shapes. Characters cannot take negative mutations, such as deficiencies, and they cannot take single mutations multiple times. Players cannot apply the Large mutation to the war form; war forms are already larger and stronger than a normal human form. Players may, however, apply the Small mutation, accepting its benefits and penalties. This is how some Lunars create their smaller, less monstrous-seeming war forms. Players and Storytellers must remember that not all mutations are appropriate as animal Traits. Those that are not may be altered, at the Storyteller\u2019s discretion, to represent an appropriate animal Trait.\n Some mutations alter the character\u2019s health level track. Ignore these changes; Lunar Exalted remain hard to wound even when their war form is slight and fast, and the increased resilience of the Exalted is represented by their Ox-Body Technique.\n While in the war form, Lunars also gain a supernatural resilience that helps them survive terrible wounds. The Lunar does not actually heal any faster (that requires Charms such Bruise-Relief Method and Healing the Scarlet Flow). While in war form, however, a Lunar can completely regrow lost limbs or organs using such Charms. It takes at an hour to regenerate such an extreme wound.\n When a Lunar in war form falls into her Dying health levels, her wounds do not worsen. She does not lose additional levels of damage until she dies; instead, she remains that wounded until either someone stabilizes her with surgery (returning her to Incapacitated) or she uses a Charm to heal a point of lethal damage, which accomplishes the same effect. (For this reason, the Lunars\u2019 Ox-Body Technique gives them two additional Dying health levels with each purchase.)\n Taking Deadly Beastman Transformation also allows the character to make better use of Gift Charms. Legend says that Luna herself composed Gift Charms for her Exalted. When a character learns a Charm with the Gift keyword, she gains abilities that she can activate automatically when she dons her war form. See the individual Charms for more details."
+    },
+    {
+        "Name": "PERFECTED HYBRID INTERACTION",
+        "Source": "Corebook",
+        "Prerequisites": "Deadly Beastman Transformation, Essence 2, Wits 3",
+        "Info": "When a Lunar isn\u2019t content to have a war form that represents the best of his animal and human natures, he may take this Knack. It allows his player to reallocate the points for mutation ignoring Deadly Beastman Transformation\u2019s guidelines. The Lunar\u2019s shape in his war form no longer needs to reflect his true nature\u2014just the deadly abilities he wishes to have. From this point on, this is the character\u2019s true war form.\n Though the name would never reflect it, many Lunars consider this Knack a step along the road to chimerism and view its possessors with deep suspicion."
+    },
+    {
+        "Name": "TERRIFYING BEASTMAN ALTERATION",
+        "Source": "Corebook",
+        "Prerequisites": "Deadly Beastman Transformation, Essence 4, Stamina 4",
+        "Info": "With a deeper understanding of one\u2019s true forms comes a truer merging between the two. Purchasing this Knack gives the Lunar\u2019s player (Essence) more points to play with when choosing mutations for the war form. The final formula becomes ([Essence x 2] + 4). When the character takes Terrifying Beastman Alteration, his player is free to redesign his war form from the ground up, following the same guidelines as normal. However, the Lunar\u2019s human form becomes more animalistic, and his Tell becomes more prominent, reducing the base MDV needed to see the Tell to 8."
+    },
+    {
+        "Name": "DEVASTATING OGRE ENHANCEMENT",
+        "Source": "Corebook",
+        "Prerequisites": "Deadly Beastman Transformation, Essence 5, Strength 4",
+        "Info": "Taking this Knack increases the size and deadliness of the character\u2019s war form. The hybrid form becomes terrifying in size, dwarfing even the tallest human from at least 12 feet of height. The character also adds one additional dot to each physical Attribute when in the war form, on top of any bonus received from Deadly Beastman Transformation.\n Lunars who possess Devastating Ogre Enhancement are widely respected and often feared, even by their peers, for their dedication to the ideal of warfare and their constant honing of their physical form. Most (Lunars, at least) consider them the foremost warriors of Creation."
+    }
+]

@@ -61,5 +61,5 @@ if __name__ == "__main__":
   keyword_charm = "Cost:"
   charms = search_keyword(file_path, keyword_knack, keyword_charm)
 
-  with open('Lunar_Solar.json', 'w') as json_file:
+  with open('LunarCharms.json', 'w') as json_file:
     json.dump(charms, json_file, indent=4)

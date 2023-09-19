@@ -1,5 +1,6 @@
 const { Client } = require("@notionhq/client");
-const charmsJson = require("./charms.json");
+const charmsJson = require("../../resources/LunarCharms.json");
+const knacksJson = require("../../resources/LunarCharms.json");
 
 console.log(
   "🚀 ~ file: index.js:6 ~ process.env.NOTION_KEY",
@@ -129,7 +130,7 @@ const execute = async () => {
   for (let i = 0; i < payload.length; i++) {
     // Add a few new pages to the database that was just created
     await addNotionPageToDatabase(
-      "3a922ee144bd4bcf9b43f21688410374",
+      databaseId,
       payload[i]
     );
   }

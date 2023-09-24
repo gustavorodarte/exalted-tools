@@ -12,32 +12,16 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-const AbilityEmojiMap = {
-  Archery: "🏹",
-  Athletics: "🏋️‍♂️",
-  Awareness: "👁️",
-  Bureaucracy: "💰",
-  Craft: "🛠️",
-  Dodge: "🤸",
-  Integrity: "🧘",
-  Investigation: "🔍",
-  Larceny: "🕵️",
-  Linguistics: "✍️",
-  Lore: "📚",
-  "Martial Arts": "🥋",
-  Medicine: "🏥",
-  Melee: "🗡️",
-  Occult: "🔮",
-  Performance: "💃",
-  Presence: "🗣️",
-  Resistance: "🛡️",
-  Ride: "🏇",
-  Sail: "⛵",
-  Socialize: "👸",
-  Stealth: "🥷",
-  Survival: "🐾",
-  Thrown: "🪃",
-  War: "⚔️",
+const AttributeEmojiMap = {
+  Strength: "💪",
+  Dexterity: "🤸‍♂️",
+  Stamina: "🏃",
+  Charisma: "😀",
+  Manipulation: "🤥",
+  Appearance: "🙆‍♀️",
+  Perception: "🧐",
+  Intelligence: "🧠",
+  Wits: "🤔",
 };
 
 async function addNotionPageToDatabase(databaseId, customPayload) {
@@ -51,15 +35,20 @@ async function addNotionPageToDatabase(databaseId, customPayload) {
 }
 
 const execute = async () => {
-  const payload = charmsJson.map((charm) => {
+  const lunarCharmsWithAttributes = charmsJson.map((charm) => ({
+    ...charm,
+    attribute: charm.mins.split(" ")[0],
+  }));
+
+  const payload = lunarCharmsWithAttributes.map((charm) => {
     const properties = {
       title: {
         type: "title",
         title: [{ type: "text", text: { content: charm.title } }],
       },
-      Ability: {
+      Attribute: {
         type: "multi_select",
-        multi_select: [{ name: charm.ability }],
+        multi_select: [{ name: charm.attribute }],
       },
       Cost: {
         type: "rich_text",
@@ -99,25 +88,57 @@ const execute = async () => {
       },
     };
 
-    const children = [
-      {
-        object: "block",
-        type: "paragraph",
-        paragraph: {
-          rich_text: [
+    const children =
+      charm.description.length <= 2000
+        ? [
             {
-              type: "text",
-              text: {
-                content: charm.description,
+              object: "block",
+              type: "paragraph",
+              paragraph: {
+                rich_text: [
+                  {
+                    type: "text",
+                    text: {
+                      content: charm.description,
+                    },
+                  },
+                ],
               },
             },
-          ],
-        },
-      },
-    ];
+          ]
+        : [
+            {
+              object: "block",
+              type: "paragraph",
+              paragraph: {
+                rich_text: [
+                  {
+                    type: "text",
+                    text: {
+                      content: charm.description.slice(0, 2000),
+                    },
+                  },
+                ],
+              },
+            },
+            {
+              object: "block",
+              type: "paragraph",
+              paragraph: {
+                rich_text: [
+                  {
+                    type: "text",
+                    text: {
+                      content: charm.description.slice(2000),
+                    },
+                  },
+                ],
+              },
+            },
+          ];
 
     const icon = {
-      emoji: AbilityEmojiMap[charm.ability] || "🔆",
+      emoji: AttributeEmojiMap[charm.attribute] || "🌕",
     };
 
     return {
@@ -129,10 +150,7 @@ const execute = async () => {
 
   for (let i = 0; i < payload.length; i++) {
     // Add a few new pages to the database that was just created
-    await addNotionPageToDatabase(
-      databaseId,
-      payload[i]
-    );
+    await addNotionPageToDatabase(databaseId, payload[i]);
   }
 };
 

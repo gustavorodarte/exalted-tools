@@ -38,55 +38,71 @@ const abilities = [
 
 const sectionTitles = [...castes, ...abilities];
 
-const charmsSplitted = Array.from(charmsJson).reduce((charmsText, line) => {
-  const isStartOfNewCharm = line.includes("\n\n");
+const charmsSplitted = Array.from(charmsJson).reduce(
+  (charmsText, line, index, array) => {
+    const isStartOfNewCharm =
+      index > 0 ? array[index - 1]?.includes("Prerequisite Charms") : true;
 
-  const lineWithoutSectionTitles = sectionTitles.reduce(
-    (charmLine, sectionTitle) => {
-      return charmLine.replaceAll(sectionTitle, "");
-    },
-    line
+    const lineWithoutSectionTitles = sectionTitles.reduce(
+      (charmLine, sectionTitle) => {
+        return charmLine.replaceAll(sectionTitle, "").replaceAll("; ", "");
+      },
+      line
+    );
+
+    if (!isStartOfNewCharm) {
+      const lastCharm = charmsText.pop();
+
+      return [...charmsText, [...lastCharm, lineWithoutSectionTitles]];
+    }
+
+    return [...charmsText, [lineWithoutSectionTitles]];
+  },
+  []
+);
+
+const charmsMapped = charmsSplitted
+  .map((charmInfo) => {
+    // const title = charmInfo[0]?.replaceAll("\n", "");
+
+    
+    const [oldTitle, ...restOfString] = charmInfo[0]
+      ?.replaceAll("\n", "")
+      .split(/(?=[a-z])/);
+
+    const [origin, note] = [oldTitle[oldTitle.length - 1], ...restOfString]
+      .join("")
+      .split(" (");
+    const title = oldTitle.slice(0, -1);
+
+    return {
+      ability: charmInfo[2]?.replaceAll("Mins: ", "").split(" ")[0],
+      title,
+      origin,
+      note: note?.slice(0, -1),
+      cost: charmInfo[1]?.replaceAll("Cost: ", ""),
+      mins: charmInfo[2]?.replaceAll("Mins: ", ""),
+      type: charmInfo[3]?.replaceAll("Type: ", ""),
+      keywords: charmInfo[4]?.replaceAll("Keywords: ", ""),
+      duration: charmInfo[5]?.replaceAll("Duration: ", ""),
+      prerequisiteCharms: charmInfo[6]
+        ?.replaceAll("Prerequisite Charms: ", "")
+        .split("\n")[0],
+      description: charmInfo[6]
+        ?.replaceAll("Prerequisite Charms: ", "")
+        .split("\n")
+        .slice(1)
+        .join(""),
+    };
+  })
+  .map((charm) =>
+    charm.ability === "Martial"
+      ? {
+          ...charm,
+          ability: "Martial Arts",
+        }
+      : charm
   );
-
-  if (!isStartOfNewCharm) {
-    const lastCharm = charmsText.pop();
-
-    return [...charmsText, [...lastCharm, lineWithoutSectionTitles]];
-  }
-
-  return [...charmsText, [lineWithoutSectionTitles]];
-}, []);
-
-const charmsMapped = charmsSplitted.map((charmInfo) => {
-  // const title = charmInfo[0]?.replaceAll("\n", "");
-
-  const [oldTitle, ...restOfString] = charmInfo[0]
-    ?.replaceAll("\n", "")
-    .split(/(?=[a-z])/);
-
-  const [origin, note] = [oldTitle[oldTitle.length - 1], ...restOfString]
-    .join("")
-    .split(" (");
-  const title = oldTitle.slice(0, -1);
-
-  return {
-    ability: charmInfo[2]?.replaceAll("Mins: ", "").split(" ")[0],
-    title,
-    origin,
-    note: note?.slice(0, -1),
-    cost: charmInfo[1]?.replaceAll("Cost: ", ""),
-    mins: charmInfo[2]?.replaceAll("Mins: ", ""),
-    type: charmInfo[3]?.replaceAll("Type: ", ""),
-    keywords: charmInfo[4]?.replaceAll("Keywords: ", ""),
-    duration: charmInfo[5]?.replaceAll("Duration: ", ""),
-    prerequisiteCharms: charmInfo[6]
-      ?.replaceAll("Prerequisite Charms: ", "")
-      .split("\n")[0],
-    description: charmInfo[6]
-      ?.replaceAll("Prerequisite Charms: ", "")
-      .split("\n")[1],
-  };
-});
 
 const charmsCorrectedParsed = charmsMapped.filter(
   (charm) =>

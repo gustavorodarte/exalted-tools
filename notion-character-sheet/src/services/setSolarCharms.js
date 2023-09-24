@@ -40,13 +40,20 @@ const AbilityEmojiMap = {
 };
 
 async function addNotionPageToDatabase(databaseId, customPayload) {
-  const newPage = await notion.pages.create({
-    parent: {
-      database_id: databaseId,
-    },
-    ...customPayload,
-  });
-  console.log(newPage);
+  try {
+    const newPage = await notion.pages.create({
+      parent: {
+        database_id: databaseId,
+      },
+      ...customPayload,
+    });
+    console.log(newPage);
+  } catch (error) {
+    if (error.status === 502) {
+      return addNotionPageToDatabase(databaseId, customPayload);
+    }
+    throw error;
+  }
 }
 
 const execute = async () => {
@@ -98,8 +105,12 @@ const execute = async () => {
       },
     };
 
-    const children = [
-      {
+    const numberOfChildren =
+      charm.description.length > 20000 ? charm.description.length / 2000 : 1;
+
+    const children = Array(numberOfChildren)
+      .fill(undefined)
+      .map((value, index) => ({
         object: "block",
         type: "paragraph",
         paragraph: {
@@ -107,13 +118,15 @@ const execute = async () => {
             {
               type: "text",
               text: {
-                content: charm.description,
+                content: charm.description.slice(
+                  index * 2000,
+                  (index + 1) * 2000
+                ),
               },
             },
           ],
         },
-      },
-    ];
+      }));
 
     const icon = {
       emoji: AbilityEmojiMap[charm.ability] || "🔆",
@@ -128,10 +141,7 @@ const execute = async () => {
 
   for (let i = 0; i < payload.length; i++) {
     // Add a few new pages to the database that was just created
-    await addNotionPageToDatabase(
-      databaseId,
-      payload[i]
-    );
+    await addNotionPageToDatabase(databaseId, payload[i]);
   }
 };
 

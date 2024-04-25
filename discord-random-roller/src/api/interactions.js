@@ -1,11 +1,16 @@
+/* eslint-disable no-console */
+/* eslint-disable fp/no-unused-expression */
 const { verifyKey, InteractionResponseType, InteractionType } = require('discord-interactions');
 // Your public key can be found on your application in the Developer Portal
 const isVerified = (req) => {
-  const signature = req.headers['X-Signature-Ed25519'];
-  const timestamp = req.headers['X-Signature-Timestamp'];
-  console.log("🚀 ~ isVerified ~ req.headers[:", req.headers);
-  console.log("🚀 ~ isVerified ~ req.rawBody:", req.rawBody);
-  return verifyKey(req.rawBody, signature, timestamp, process.env.DISCORD_PUBLIC_KEY);
+  const signature = req.headers['x-signature-ed25519'];
+  console.log('🚀 ~ isVerified ~ signature:', signature);
+  const timestamp = req.headers['x-signature-timestamp'];
+  console.log('🚀 ~ isVerified ~ timestamp:', timestamp);
+  console.log('🚀 ~ isVerified ~ req.headers:', req.headers);
+  console.log('🚀 ~ isVerified ~ req.rawBody:', req.body);
+  console.log('🚀 ~ isVerified ~ DISCORD_PUBLIC_KEY:', process.env.DISCORD_PUBLIC_KEY);
+  return verifyKey(req.body, signature, timestamp, process.env.DISCORD_PUBLIC_KEY);
 };
 
 export default function handler(request, response) {

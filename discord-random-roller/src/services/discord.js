@@ -5,8 +5,8 @@ const { REST, Routes } = require('discord.js');
 const createCommand = async () => {
   const commands = [
     {
-      name: 'ping',
-      description: 'Replies with Pong!',
+      name: 'roll',
+      description: 'Replies with a DIce!',
     },
   ];
 

@@ -15,23 +15,30 @@ const isVerified = (req) => {
 
 export default function handler(request, response) {
   const isPing = request.body.type === InteractionType.PING;
-  const sendPONG = () => response.send(JSON.stringify({
-    type: InteractionResponseType.PONG,
-  }));
+  const sendPONG = () => {
+    console.log('🚀 sending pong message');
+    return response.send({
+      type: InteractionResponseType.PONG,
+    });
+  };
 
   const sendInvalidSignature = () => response.status(401).send('invalid request signature');
 
-  const defaultResponse = JSON.stringify({
-    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-    data: {
-      tts: false,
-      content: 'Congrats on sending your command!',
-      embeds: [],
-      allowed_mentions: { parse: [] },
-    },
-  });
+  const sendDefaultResponse = () => {
+    const defaultMessage = {
+      type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+      data: {
+        tts: false,
+        content: 'Congrats on sending your command!',
+        embeds: [],
+        allowed_mentions: { parse: [] },
+      },
+    };
+    console.log('🚀 sending default message', defaultMessage);
+    return response.status(200).send(defaultMessage);
+  };
 
-  const defaultFlow = () => (isPing ? sendPONG() : response.send(defaultResponse));
+  const defaultFlow = () => (isPing ? sendPONG() : sendDefaultResponse());
 
   return isVerified(request) ? defaultFlow() : sendInvalidSignature();
 }

@@ -1,31 +1,22 @@
-/* eslint-disable no-nested-ternary */
-const nacl = require('tweetnacl');
-
+const { verifyKey, InteractionResponseType, InteractionType } = require('discord-interactions')
 // Your public key can be found on your application in the Developer Portal
-const PUBLIC_KEY = 'APPLICATION_PUBLIC_KEY';
-
 const isVerified = (req) => {
-  const signature = req.getHeader('X-Signature-Ed25519');
-  const timestamp = req.getHeader('X-Signature-Timestamp');
-  const body = req.rawBody; // rawBody is expected to be a string, not raw bytes
+  const signature = req.headers['X-Signature-Ed25519'];
+  const timestamp = req.headers['X-Signature-Timestamp'];
 
-  return nacl.sign.detached.verify(
-    Buffer.from(timestamp + body),
-    Buffer.from(signature, 'hex'),
-    Buffer.from(PUBLIC_KEY, 'hex'),
-  );
+  return verifyKey(req.rawBody, signature, timestamp, process.env.DISCORD_CLIENT_ID);
 };
 
 export default function handler(request, response) {
-  const isPing = request.body.type === '1';
+  const isPing = request.body.type === InteractionType.PING;
   const sendPONG = () => response.send(JSON.stringify({
-    type: 1,
+    type: InteractionResponseType.PONG,
   }));
 
   const sendInvalidSignature = () => response.status(401).send('invalid request signature');
 
   const defaultResponse = JSON.stringify({
-    type: 4,
+    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
     data: {
       tts: false,
       content: 'Congrats on sending your command!',
@@ -36,5 +27,5 @@ export default function handler(request, response) {
 
   const defaultFlow = () => (isPing ? sendPONG() : response.send(defaultResponse));
 
-  return isVerified(request) ? sendInvalidSignature() : defaultFlow();
+  return isVerified(request) ? defaultFlow() : sendInvalidSignature();
 }

@@ -37,11 +37,13 @@ const sendCommandResponse = (response, content, originalContent) => {
       allowed_mentions: { parse: [] },
       components: [
         {
-          type: 2,
-          label: 'Reroll!',
-          style: 3,
-          custom_id: originalContent,
-          emoji: '🎲',
+          type: 1,
+          components: [{
+            type: 2,
+            label: 'Reroll!',
+            style: 3,
+            custom_id: originalContent,
+          }],
         },
       ],
 
@@ -79,7 +81,8 @@ const sendPONG = (response) => {
 };
 
 const rollFlow = (request, response) => rollDice({
-  content: request.body.data.options[0].value || request.body.data.custom_id,
+  content: request.body.data.options
+    ? request.body.data.options[0].value : request.body.data.custom_id,
   userName: request.body.member.nick || request.body.member.user.username,
   response,
 });

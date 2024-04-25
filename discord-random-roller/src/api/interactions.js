@@ -10,7 +10,7 @@ const isVerified = (req) => {
   console.log('🚀 ~ isVerified ~ req.headers:', req.headers);
   console.log('🚀 ~ isVerified ~ req.rawBody:', req.body);
   console.log('🚀 ~ isVerified ~ DISCORD_PUBLIC_KEY:', process.env.DISCORD_PUBLIC_KEY);
-  return verifyKey(req.body, signature, timestamp, process.env.DISCORD_PUBLIC_KEY);
+  return verifyKey(JSON.stringify(req.body), signature, timestamp, process.env.DISCORD_PUBLIC_KEY);
 };
 
 export default function handler(request, response) {

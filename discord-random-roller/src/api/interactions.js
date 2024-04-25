@@ -5,8 +5,8 @@ const nacl = require('tweetnacl');
 const PUBLIC_KEY = 'APPLICATION_PUBLIC_KEY';
 
 const isVerified = (req) => {
-  const signature = req.get('X-Signature-Ed25519');
-  const timestamp = req.get('X-Signature-Timestamp');
+  const signature = req.getHeader('X-Signature-Ed25519');
+  const timestamp = req.getHeader('X-Signature-Timestamp');
   const body = req.rawBody; // rawBody is expected to be a string, not raw bytes
 
   return nacl.sign.detached.verify(

@@ -5,52 +5,12 @@ const { REST, Routes } = require('discord.js');
 const createCommand = async () => {
   const commands = [
     {
-      name: 'r',
-      description: 'Replies with a DIce!',
-      options: [
-        {
-          name: 'dice_number',
-          description: 'The amount of dices',
-          type: 4,
-          required: true,
-        },
-        {
-          name: 'dice_type',
-          description: 'Type of the dice to roll',
-          type: 4,
-          required: true,
-        },
-        {
-          name: 'roll_type',
-          description: 'Type of the dice to roll',
-          type: 3,
-          required: true,
-          choices: [
-            {
-              name: 'Normal',
-              value: 'e',
-            },
-            {
-              name: 'Damage',
-              value: 'x',
-            },
-          ],
-        },
-        {
-          name: 'target_number',
-          description: 'target number',
-          type: 4,
-          required: true,
-        },
-      ],
-    },
-    {
       name: 'roll',
-      description: 'classic formart',
+      description: 'Classic format: #[numberOfDice][typeOfDice][rollType][targetNumber].',
       options: [
         {
           name: 'dice_sintax',
-          description: 'Roll description',
+          description: '#[numberOfDice][typeOfDice][rollType][targetNumber]',
           type: 3,
           required: true,
         },

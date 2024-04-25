@@ -27,7 +27,7 @@ const parseRoll = (diceRoll, rollResult) => {
   return hasTargetNumber ? msg : msg2;
 };
 
-const sendCommandResponse = (response, content) => {
+const sendCommandResponse = (response, content, originalContent) => {
   const defaultMessage = {
     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
     data: {
@@ -35,6 +35,16 @@ const sendCommandResponse = (response, content) => {
       content,
       embeds: [],
       allowed_mentions: { parse: [] },
+      components: [
+        {
+          type: 2,
+          label: 'Reroll!',
+          style: 3,
+          custom_id: originalContent,
+          emoji: '🎲',
+        },
+      ],
+
     },
   };
   console.log('🚀 sending default message', defaultMessage);
@@ -56,7 +66,7 @@ const rollDice = ({
       (rollResult) => {
         const rollParsed = parseRoll(content, rollResult);
         const message = `**${userName}** rolls ${rollParsed}`;
-        return sendCommandResponse(response, message);
+        return sendCommandResponse(response, message, content);
       },
     ));
 };
@@ -68,13 +78,11 @@ const sendPONG = (response) => {
   });
 };
 
-const shouldRollDice = (request) => request.data.name === 'roll';
-
-const rollFlow = (request, response) => (shouldRollDice ? rollDice({
-  content: request.body.data.options[0].value,
+const rollFlow = (request, response) => rollDice({
+  content: request.body.data.options[0].value || request.body.data.custom_id,
   userName: request.body.member.nick || request.body.member.user.username,
   response,
-}) : '');
+});
 
 const sendInvalidSignature = (response) => response.status(401).send('invalid request signature');
 

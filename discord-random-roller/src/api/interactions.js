@@ -18,7 +18,7 @@ const isVerified = (req) => {
 
 export default function handler(request, response) {
   const isPing = request.body.type === '1';
-  const sendPONG = response.send(JSON.stringify({
+  const sendPONG = () => response.send(JSON.stringify({
     type: 1,
   }));
 
@@ -34,5 +34,7 @@ export default function handler(request, response) {
     },
   });
 
-  return isVerified(request) ? isPing ? sendPONG : defaultResponse : sendInvalidSignature();
+  const defaultFlow = () => (isPing ? sendPONG() : response.send(defaultResponse));
+
+  return isVerified(request) ? sendInvalidSignature() : defaultFlow();
 }

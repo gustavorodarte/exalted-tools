@@ -7,12 +7,7 @@ const randomService = require('../services/random');
 
 const isVerified = (req) => {
   const signature = req.headers['x-signature-ed25519'];
-  console.log('🚀 ~ isVerified ~ signature:', signature);
   const timestamp = req.headers['x-signature-timestamp'];
-  console.log('🚀 ~ isVerified ~ timestamp:', timestamp);
-  console.log('🚀 ~ isVerified ~ req.headers:', req.headers);
-  console.log('🚀 ~ isVerified ~ req.rawBody:', req.body);
-  console.log('🚀 ~ isVerified ~ DISCORD_PUBLIC_KEY:', process.env.DISCORD_PUBLIC_KEY);
   return verifyKey(JSON.stringify(req.body), signature, timestamp, process.env.DISCORD_PUBLIC_KEY);
 };
 

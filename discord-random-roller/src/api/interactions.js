@@ -2,7 +2,7 @@
 /* eslint-disable fp/no-unused-expression */
 const { verifyKey, InteractionResponseType, InteractionType } = require('discord-interactions');
 const { rollDiceCommand } = require('../commands/rollDice/rollDiceCommand');
-
+const { mandateCommand } = require('../commands/mandate/mandateCommand');
 
 const isVerified = (req) => {
   const signature = req.headers['x-signature-ed25519'];
@@ -25,15 +25,18 @@ const defineCommand = (request, response) => {
       userName: request.body.member.nick || request.body.member.user.username,
       response,
     }),
+    mandate: () => mandateCommand({
+      content: request.body.data.options
+        ? request.body.data.options[0].value : request.body.data.custom_id,
+      userName: request.body.member.user.username,
+      response,
+    }),
   };
 
   const command = commands[request.body.data.name];
 
   return command();
-
 };
-
-
 
 const sendInvalidSignature = (response) => response.status(401).send('invalid request signature');
 

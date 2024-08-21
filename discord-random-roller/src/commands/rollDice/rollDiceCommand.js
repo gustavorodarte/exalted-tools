@@ -1,3 +1,5 @@
+/* eslint-disable fp/no-unused-expression */
+const { InteractionResponseType } = require('discord-interactions');
 const isTruthy = require('crocks/predicates/isTruthy');
 const diceRoller = require('./diceRoller');
 const randomService = require('../../services/random');
@@ -58,7 +60,6 @@ const rollDiceCommand = ({
     ));
 };
 
-
-module.exports =  {
+module.exports = {
   rollDiceCommand,
 };

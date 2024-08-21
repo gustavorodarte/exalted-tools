@@ -12,6 +12,7 @@
     "lint:fix": "eslint *.js **/*.js --fix; exit 0"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "crocks": "^0.12.4",
     "discord-interactions": "^3.4.0",
     "discord.js": "^14.14.1",
